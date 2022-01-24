@@ -20,8 +20,8 @@ This is an application to import, edit and export Excel files in React. It was b
 1. First, Click Files/Open to import excel file.
 ![image](https://user-images.githubusercontent.com/93680584/150765490-9f8e9f50-cb56-4ef4-8055-1e54c4148915.png)
 
-2. Next, Click folllow button.
+2. Click the button below, set the form, and apply.
 ![image](https://user-images.githubusercontent.com/93680584/150767231-474ac575-260d-42ef-b4e7-a804eb80b4e4.png)
 
-3. Finally, you can export to any format you want.
-![image](https://user-images.githubusercontent.com/93680584/150766615-5dfc96d1-4f01-4258-afd0-4c6446cc00a7.png)
+3. Finally, you can export to any format you want on Files/Save As.
+![image](https://user-images.githubusercontent.com/93680584/150768114-2f9dca9e-05a3-4889-a507-9181f52507ba.png)
