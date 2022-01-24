@@ -37,7 +37,7 @@ function App() {
   }
 
   const percentApply = () => {
-    if (applyType && applyPercent > 0) {
+    if (applyType && applyPercent > 0 && applyColumns.length) {
       setModalVisible(false);
       setApplyType(null);
       setApplyPercent(null);
@@ -55,10 +55,10 @@ function App() {
             index = 0;
           }
           let newVlaue = cell.value;
-          if (applyColumns.includes(String(index))) {
-            if (applyType === '1') {
+          if (newVlaue && applyColumns.includes(String(index))) {
+            if (applyType == 1) {
               newVlaue = newVlaue * applyPercent / 100;
-            } else if (applyType === '2') {
+            } else if (applyType == 2) {
               newVlaue = newVlaue * (1 + applyPercent / 100);
             } else {
               newVlaue = newVlaue * (1 - applyPercent / 100);
