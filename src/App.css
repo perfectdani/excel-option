@@ -1,11 +1,10 @@
 @import '../node_modules/antd/dist/antd.css';
 
-.App {
-  padding: 30px 30px 0 30px;
-}
-
-.action {
-  margin-bottom: 20px;
+#modal-button {
+  z-index: 100;
+  position: fixed;
+  top: 3px;
+  left: 410px;
 }
 
 .modal-label {
@@ -14,10 +13,6 @@
   padding-bottom: 10px;
 }
 
-.ant-table-body {
-  overflow-x: auto;
-}
-
-.editable-row input {
-  width: 50px;
+.e-sheet-panel {
+  height: calc(100vh - 150px)!important;
 }
