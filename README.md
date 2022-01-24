@@ -12,7 +12,7 @@ This is an application to import, edit and export Excel files in React. It was b
 - This will copy all the files from this repo down to your computer
 - In your terminal, cd into the directory you just created
 - Type ```npm install``` to install all dependencies
-- Last, but not least, type ```npm start``` to run the app locally.
+- Last, but not least, type ```npm run start``` to run the app locally.
 
 - To look at the code, just open up the project in your favorite code editor!
 
