@@ -96,7 +96,7 @@ function App() {
         <Select style={{ width: '100%' }} placeholder="Select Columns" value={applyType} onChange={(v) => setApplyType(v)}>
           <Option value={1}>Self</Option>
           <Option value={2}>Increase</Option>
-          <Option value={3}>Reduce</Option>
+          <Option value={3}>Decrease</Option>
         </Select>
         <label className='modal-label'>Percent</label>
         <Input type="number" suffix="%" min={0} placeholder='Input Value' value={applyPercent} onChange={(e) => setApplyPercent(e.target.value)} />
