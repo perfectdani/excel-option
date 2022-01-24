@@ -27,11 +27,10 @@ This is an application to import, edit and export Excel files in React. It was b
 ![image](https://user-images.githubusercontent.com/93680584/150768868-f51a4198-16eb-4139-bc89-6f5398c0a3d1.png)
 
 - Select the type you want to apply
-
-    Self: percentage of the cell,\
-    Increase: cell + percentage of the cell,\
-    Decrease: cell - percentage of the cell
-
+  - Self: percentage of the cell
+  - Increase: cell + percentage of the cell
+  - Decrease: cell - percentage of the cell
+ 
 ![image](https://user-images.githubusercontent.com/93680584/150784641-ccde76b8-147e-4dfa-8adc-484e4567ff93.png)
 
 - Input the value of the percentage
