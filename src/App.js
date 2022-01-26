@@ -13,12 +13,17 @@ function App() {
 
   const ssRef = useRef();
 
+  const [fileName, setFileName] = useState(null);
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [applyPercent, setApplyPercent] = useState(null);
   const [applyColumns, setApplyColumns] = useState([]);
   const [applyType, setApplyType] = useState(null);
+
+  const beforeOpen = (arg) => {
+    setFileName(arg.file.name);
+  }
 
   const beforeModal = () => {
     setModalVisible(true);
@@ -63,6 +68,7 @@ function App() {
             } else {
               newVlaue = newVlaue * (1 - applyPercent / 100);
             }
+            newVlaue = Math.ceil(newVlaue);
           }
           row = [...row, newVlaue];
           index++;
@@ -112,6 +118,7 @@ function App() {
       <SpreadsheetComponent
         showSheetTabs={false}
         ref={ssRef}
+        beforeOpen={beforeOpen}
         openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open'
         saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
       >
@@ -123,6 +130,7 @@ function App() {
           </SheetDirective>
         </SheetsDirective>
       </SpreadsheetComponent>
+      <label className='filename'>{fileName}</label>
     </div>
   );
 }
