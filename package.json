@@ -5,7 +5,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@flatfile/adapter": "^2.9.6",
-    "@syncfusion/ej2-react-spreadsheet": "^19.4.43",
+    "@syncfusion/ej2-react-buttons": "19.1.63",
+    "@syncfusion/ej2-react-spreadsheet": "19.1.69",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

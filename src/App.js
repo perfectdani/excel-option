@@ -24,7 +24,6 @@ function App() {
   const beforeOpen = (arg) => {
     setFileName(arg.file.name);
   }
-
   const beforeModal = () => {
     setModalVisible(true);
     let usedColIdx = ssRef.current.getActiveSheet().usedRange.colIndex;
@@ -41,7 +40,8 @@ function App() {
     setColumns(colsArr);
   }
 
-  const percentApply = () => {
+  function percentApply() {
+    console.log(ssRef);
     if (applyType && applyPercent > 0 && applyColumns.length) {
       setModalVisible(false);
       setApplyType(null);
@@ -52,28 +52,40 @@ function App() {
       let arr = [];
       let row = [];
       let index = 0;
+      let current_row = 0; 
       ssRef.current.getData(getRangeAddress([0, 0, usedRowIdx, usedColIdx])).then((cells) => {
         cells.forEach((cell, key) => {
           if (index > usedColIdx) {
             arr = [...arr, row];
             row = [];
             index = 0;
+            current_row++;
           }
           let newVlaue = cell.value;
-          if (newVlaue && applyColumns.includes(String(index))) {
-            if (applyType == 1) {
+          if (newVlaue &&newVlaue!==undefined&& applyColumns.includes(String(index))) {
+            
+            if (applyType === 1) {
               newVlaue = newVlaue * applyPercent / 100;
-            } else if (applyType == 2) {
+            } else if (applyType === 2) {
               newVlaue = newVlaue * (1 + applyPercent / 100);
             } else {
               newVlaue = newVlaue * (1 - applyPercent / 100);
             }
             newVlaue = Math.ceil(newVlaue);
+            if(!isNaN(newVlaue))
+              ssRef.current.sheets[0].rows[current_row].cells[index].value = newVlaue;
           }
           row = [...row, newVlaue];
           index++;
         })
         setData(arr);
+        console.log(arr);
+        // ssRef.current.sheets[0].ranges[0].dataSource = arr;
+        
+        
+      }).then(()=>{
+        ssRef.current.refresh(false)
+        // ssRef.current.sheets[0].ranges[0].dataSource = arr;
       });
     } else {
       notification.warning({
@@ -89,6 +101,11 @@ function App() {
     setApplyColumns([]);
   }
 
+  const openCompleted = () => {
+    ssRef.current.refresh(false)
+  }
+ 
+  
   return (
     <div className='App'>
       <Button type="text" icon={<LineChartOutlined />} id="modal-button" onClick={beforeModal} />
@@ -119,6 +136,7 @@ function App() {
         showSheetTabs={false}
         ref={ssRef}
         beforeOpen={beforeOpen}
+        openCompleted={openCompleted}
         openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open'
         saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
       >
