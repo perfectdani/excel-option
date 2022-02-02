@@ -6,7 +6,27 @@
   top: 3px;
   left: 410px;
 }
-
+#save_csv{
+  z-index: 100;
+  position: fixed;
+  top: 3px;
+  left: 450px;
+}
+#save_xls{
+  z-index: 100;
+  position: fixed;
+  top: 3px;
+  left: 490px;
+}
+#save_pdf{
+  z-index: 100;
+  position: fixed;
+  top: 3px;
+  left: 530px;
+}
+.e-menu-parent .e-disabled{
+  display: none !important;
+}
 .modal-label {
   display: block;
   padding-top: 30px;
