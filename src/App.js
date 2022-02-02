@@ -24,7 +24,6 @@ function App() {
   const beforeOpen = (arg) => {
     setFileName(arg.file.name);
   }
-
   const beforeModal = () => {
     setModalVisible(true);
     let usedColIdx = ssRef.current.getActiveSheet().usedRange.colIndex;
@@ -132,41 +131,10 @@ function App() {
           console.log(newValue);
         }
 
-        if(newValue===undefined)
-          txtData += ",";
-        else
-          txtData += newValue+",";
-        index++;
-      });
-      const filename = "sample."+ext;
-      download(filename,txtData);
-    }).then(()=>{
-      
-      // ssRef.current.sheets[0].ranges[0].dataSource = arr;
-    });
+  const openCompleted = () => {
+    ssRef.current.refresh(false)
   }
-  async function download(filename, text) {
-    const image = new Blob([text], { type: 'application/octet-binary' })
-    const opts = {
-      types: [{
-        description: 'CSV file',
-        accept: {'text/csv': ['.csv']},
-      }],
-    };
-    if( window.showSaveFilePicker ) {
-      const handle = await window.showSaveFilePicker(opts);
-      const writable = await handle.createWritable();
-      await writable.write( image );
-      writable.close();
-    }
-    else {
-      const saveImg = document.createElement( "a" );
-      saveImg.href = URL.createObjectURL( image );
-      saveImg.download= "image.png";
-      saveImg.click();
-      setTimeout(() => URL.revokeObjectURL( saveImg.href ), 60000 );
-    }
-  }
+ 
   
   return (
     <div className='App'>
@@ -199,7 +167,7 @@ function App() {
         showSheetTabs={false}
         ref={ssRef}
         beforeOpen={beforeOpen}
-        allowSave= {false}
+        openCompleted={openCompleted}
         openUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/open'
         saveUrl='https://ej2services.syncfusion.com/production/web-services/api/spreadsheet/save'
       >
