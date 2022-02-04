@@ -11,8 +11,14 @@ This is an application to import, edit and export Excel files in React. It was b
   - hit enter
 - This will copy all the files from this repo down to your computer
 - In your terminal, cd into the directory you just created
-- Type ```npm install``` to install all dependencies
-- Last, but not least, type ```npm run start``` to run the app locally.
+    
+    ```
+    npm install -g yarn
+
+    yarn
+    
+    yarn start
+    ```
 
 - To look at the code, just open up the project in your favorite code editor!
 
@@ -41,6 +47,8 @@ This is an application to import, edit and export Excel files in React. It was b
 - Select the columns you want to apply.
 
 ![image](https://user-images.githubusercontent.com/93680584/150787062-6bc936db-eebe-418d-81d7-7b0e178682d1.png)
+
+
 
 3. Finally, you can export to any format you want on Files/Save As.
 

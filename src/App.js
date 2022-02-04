@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective, RangeDirective, getRangeAddress } from '@syncfusion/ej2-react-spreadsheet';
-import { Input, Select, Button, Modal, notification } from 'antd';
+import { Input, Select, Button, Modal, notification, Row, Col } from 'antd';
 import { LineChartOutlined,SaveOutlined } from '@ant-design/icons'
 
 import './App.css'
@@ -176,6 +176,7 @@ function App() {
         visible={modalVisible}
         onOk={percentApply}
         onCancel={cancelModal}
+        footer={null}
       >
         <label className='modal-label'>Type</label>
         <Select style={{ width: '100%' }} placeholder="Select Columns" value={applyType} onChange={(v) => setApplyType(v)}>
@@ -185,14 +186,22 @@ function App() {
         </Select>
         <label className='modal-label'>Percent</label>
         <Input type="number" suffix="%" min={0} placeholder='Input Value' value={applyPercent} onChange={(e) => setApplyPercent(e.target.value)} />
-        <label className='modal-label'>Columns:</label>
-        <Select mode="multiple" style={{ width: '100%' }} placeholder="Select Columns" value={applyColumns} onChange={(v) => setApplyColumns(v)}>
-          {
-            columns.map((column, index) => {
-              return <Option key={index}>{column}</Option>;
-            })
-          }
-        </Select>
+        <Row>
+          <Col md={15} sm={12} xs={12}>
+            <label className='modal-label'>Columns:</label>
+            <Select mode="multiple" style={{ width: '100%' }} placeholder="Select Columns" value={applyColumns} onChange={(v) => setApplyColumns(v)}>
+              {
+                columns.map((column, index) => {
+                  return <Option key={index}>{column}</Option>;
+                })
+              }
+            </Select>
+          </Col>
+          <Col md={9} sm={12} xs={12} style={{ textAlign: 'right', paddingTop: 62 }}>
+            <Button onClick={cancelModal} type="danger" >Cancel</Button>
+            <Button onClick={percentApply} type="primary" style={{ marginLeft: 12 }}>Ok</Button>
+          </Col>
+        </Row>
       </Modal>
       <SpreadsheetComponent
         showSheetTabs={false}
