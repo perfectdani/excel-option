@@ -12,7 +12,7 @@ This is an application to import, edit and export Excel files in React. It was b
 - This will copy all the files from this repo down to your computer
 - In your terminal, cd into the directory you just created
     
-    ```
+    ```Cancel changes
     npm install -g yarn
 
     yarn
@@ -46,10 +46,12 @@ This is an application to import, edit and export Excel files in React. It was b
 
 - Select the columns you want to apply.
 
-![image](https://user-images.githubusercontent.com/93680584/150787062-6bc936db-eebe-418d-81d7-7b0e178682d1.png)
+![image](https://user-images.githubusercontent.com/93680584/152605640-010d23e5-b8d8-4511-88fc-a5cc03ec0b4a.png)
+
 
 
 
 3. Finally, you can export to any format you want on Files/Save As.
 
-![image](https://user-images.githubusercontent.com/93680584/150768701-42357aac-6d7d-43a6-9184-ab87e66fb242.png)
+![image](https://user-images.githubusercontent.com/93680584/152605920-b303b4ba-2ce4-46c2-b959-6c5a313df720.png)
+
