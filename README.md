@@ -12,7 +12,7 @@ This is an application to import, edit and export Excel files in React. It was b
 - This will copy all the files from this repo down to your computer
 - In your terminal, cd into the directory you just created
     
-    ```Cancel changes
+    ```
     npm install -g yarn
 
     yarn

@@ -189,7 +189,7 @@ function App() {
         <Row>
           <Col md={15} sm={12} xs={12}>
             <label className='modal-label'>Columns:</label>
-            <Select mode="multiple" style={{ width: '100%' }} placeholder="Select Columns" value={applyColumns} onChange={(v) => setApplyColumns(v)}>
+            <Select mode="multiple" style={{ width: '100%' }} placeholder="Increase Type" value={applyColumns} onChange={(v) => setApplyColumns(v)}>
               {
                 columns.map((column, index) => {
                   return <Option key={index}>{column}</Option>;
