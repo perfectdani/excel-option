@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { SpreadsheetComponent, SheetsDirective, SheetDirective, RangesDirective, RangeDirective, getRangeAddress } from '@syncfusion/ej2-react-spreadsheet';
-import { Input, Select, Button, Modal, notification, Row, Col } from 'antd';
+import { Input, Select, Button, Modal, notification } from 'antd';
 import { LineChartOutlined,SaveOutlined } from '@ant-design/icons'
 
 import './App.css'
@@ -127,14 +127,15 @@ function App() {
         
         if(cell.format!==undefined){
           newValue = dollarUSLocale.format(newValue);
-          newValue=`"`+newValue+`"`;
           console.log(newValue);
         }
 
         if(newValue===undefined)
           txtData += ",";
-        else
-          txtData += newValue+",";
+        else{
+          txtData += `"`+newValue+`"`+",";
+        }
+          
         index++;
       });
       const filename = "sample."+ext;
