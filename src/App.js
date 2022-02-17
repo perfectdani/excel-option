@@ -126,7 +126,8 @@ function App() {
         console.log(cell.format);
         
         if(cell.format!==undefined){
-          newValue = dollarUSLocale.format(newValue);
+          // newValue = dollarUSLocale.format(newValue);
+          newValue = '$'+newValue;
           console.log(newValue);
         }
 
