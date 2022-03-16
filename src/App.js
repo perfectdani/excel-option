@@ -72,7 +72,7 @@ function App() {
             } else {
               newVlaue = newVlaue * (1 - applyPercent / 100);
             }
-            newVlaue = Math.ceil(newVlaue);
+            newVlaue = Math.round(newVlaue);
             if(!isNaN(newVlaue))
               ssRef.current.sheets[0].rows[current_row].cells[index].value = newVlaue;
           }
