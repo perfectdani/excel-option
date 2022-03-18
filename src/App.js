@@ -66,13 +66,15 @@ function App() {
           if (newVlaue &&newVlaue!==undefined&& applyColumns.includes(String(index))) {
             
             if (applyType === 1) {
-              newVlaue = newVlaue * applyPercent / 100;
+              newVlaue = ((newVlaue * 100) * parseInt(applyPercent))  / 10000;
+
             } else if (applyType === 2) {
-              newVlaue = newVlaue * (1 + applyPercent / 100);
+              newVlaue =(newVlaue * 100) * (100 + parseInt(applyPercent)) / 10000;
+
             } else {
-              newVlaue = newVlaue * (1 - applyPercent / 100);
+              newVlaue = (newVlaue * 100) * (100 - parseInt(applyPercent)) / 10000;
             }
-            newVlaue = Math.round(newVlaue);
+            newVlaue = Math.ceil(newVlaue);
             if(!isNaN(newVlaue))
               ssRef.current.sheets[0].rows[current_row].cells[index].value = newVlaue;
           }
